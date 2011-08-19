@@ -25,4 +25,8 @@ class Player
   def move_down
     @y = @y > 416 ? 416 : @y + 10
   end
+
+  def hit_by?(enemies)
+    enemies.any? { |e| Gosu::distance(@x, @y, e.x, e.y) < 30 }
+  end
 end
